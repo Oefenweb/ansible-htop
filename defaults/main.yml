@@ -1,0 +1,8 @@
+---
+# defaults file for htop
+htop_htoprc_destinations:
+  # new users
+  - /etc/skel/.config/htop
+  # current user
+  - "{{ ansible_env.HOME }}/.config/htop"
+htop_replace_htoprc: false

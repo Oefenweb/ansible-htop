@@ -1,0 +1,25 @@
+---
+# tasks file for htop
+- name: install
+  apt:
+    name: htop
+    state: present
+  tags: [configuration, htop, htop-install]
+
+- name: create configuration directory
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items: htop_htoprc_destinations
+  tags: [configuration, htop, htop-configuration]
+
+- name: create configuration file
+  copy:
+    src: etc/skel/.config/htop/htoprc
+    dest: "{{ item }}/htoprc"
+    owner: root
+    group: root
+    mode: 0644
+    force: "{{ 'yes' if htop_replace_htoprc else 'no' }}"
+  with_items: htop_htoprc_destinations
+  tags: [configuration, htop, htop-configuration]
