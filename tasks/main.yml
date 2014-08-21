@@ -3,7 +3,7 @@
 - name: install
   apt:
     name: htop
-    state: present
+    state: latest
   tags: [configuration, htop, htop-install]
 
 - name: create configuration directory
