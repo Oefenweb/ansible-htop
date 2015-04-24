@@ -5,3 +5,13 @@
   sudo: true
   roles:
     - htop
+  vars:
+    htop_htoprc_destinations:
+      skell:
+        dest: /etc/skel/.config/htop
+      current:
+        dest: "{{ ansible_env.HOME }}/.config/htop"
+      vagrant:
+        dest: /home/vagrant/.config/htop
+        owner: vagrant
+        group: vagrant

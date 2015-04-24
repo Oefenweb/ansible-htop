@@ -4,22 +4,24 @@
   apt:
     name: htop
     state: latest
+    update_cache: true
+    cache_valid_time: 3600
   tags: [configuration, htop, htop-install]
 
 - name: create configuration directory
   file:
-    path: "{{ item }}"
+    path: "{{ item.value.dest }}"
     state: directory
-  with_items: htop_htoprc_destinations
+  with_dict: htop_htoprc_destinations
   tags: [configuration, htop, htop-configuration]
 
 - name: create configuration file
   copy:
     src: etc/skel/.config/htop/htoprc
-    dest: "{{ item }}/htoprc"
-    owner: root
-    group: root
-    mode: 0644
+    dest: "{{ item.value.dest }}/htoprc"
+    owner: "{{ item.value.owner | default('root') }}"
+    group: "{{ item.value.group | default('root') }}"
+    mode: "{{ item.value.mode | default('0644') }}"
     force: "{{ 'yes' if htop_replace_htoprc else 'no' }}"
-  with_items: htop_htoprc_destinations
+  with_dict: htop_htoprc_destinations
   tags: [configuration, htop, htop-configuration]
