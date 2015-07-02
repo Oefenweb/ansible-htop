@@ -20,7 +20,7 @@
     src: etc/skel/.config/htop/htoprc
     dest: "{{ item.value.dest }}/htoprc"
     owner: "{{ item.value.owner | default('root') }}"
-    group: "{{ item.value.group | default('root') }}"
+    group: "{{ item.value.group | default(item.value.owner) | default('root') }}"
     mode: "{{ item.value.mode | default('0644') }}"
     force: "{{ 'yes' if htop_replace_htoprc else 'no' }}"
   with_dict: htop_htoprc_destinations
