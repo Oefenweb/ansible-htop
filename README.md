@@ -14,7 +14,7 @@ None
 * `htop_htoprc_destinations.key`: The identifier of the file (e.g. `skel`)
 * `htop_htoprc_destinations.key.dest`: The remote path of the file to copy (e.g. `/etc/skel`)
 * `htop_htoprc_destinations.key.owner`: The name of the user that should own the file (optional, default `root`)
-* `htop_htoprc_destinations.key.group`: The name of the group that should own the file (optional, default `root`)
+* `htop_htoprc_destinations.key.group`: The name of the group that should own the file (optional, default `owner`, then `root`)
 * `htop_htoprc_destinations.key.mode`: The mode of the file, such as 0644 (optional, default `0644`)
 
 * `htop_replace_htoprc`: [default: `true`]: Whether or not to overwrite existing htoprc files
