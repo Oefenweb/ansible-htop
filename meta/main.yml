@@ -18,6 +18,6 @@ galaxy_info:
         - squeeze
         - wheezy
         - jessie
-  categories:
+  galaxy_tags:
     - system
 dependencies: []
