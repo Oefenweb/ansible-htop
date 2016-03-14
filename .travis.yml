@@ -44,7 +44,7 @@ before_install:
   - sudo apt-get update -qq
 
   # Remove htop
-  - sudo apt-get remove --purge htop
+  - sudo apt-get remove --purge --yes htop
 
 install:
   # Install Ansible.
