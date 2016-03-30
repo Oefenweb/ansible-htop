@@ -12,7 +12,7 @@
   file:
     path: "{{ item.value.dest }}"
     state: directory
-  with_dict: htop_htoprc_destinations
+  with_dict: "{{ htop_htoprc_destinations }}"
   tags: [configuration, htop, htop-configuration]
 
 - name: create configuration file
@@ -23,5 +23,5 @@
     group: "{{ item.value.group | default(item.value.owner) | default('root') }}"
     mode: "{{ item.value.mode | default('0644') }}"
     force: "{{ 'yes' if htop_replace_htoprc else 'no' }}"
-  with_dict: htop_htoprc_destinations
+  with_dict: "{{ htop_htoprc_destinations }}"
   tags: [configuration, htop, htop-configuration]
