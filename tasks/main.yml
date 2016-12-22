@@ -2,18 +2,25 @@
 ---
 - name: install
   apt:
-    name: htop
-    state: latest
+    name: "{{ item }}"
+    state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  tags: [configuration, htop, htop-install]
+  with_items: "{{ htop_dependencies }}"
+  tags:
+    - configuration
+    - htop
+    - htop-install
 
 - name: create configuration directory
   file:
     path: "{{ item.value.dest }}"
     state: directory
   with_dict: "{{ htop_htoprc_destinations }}"
-  tags: [configuration, htop, htop-configuration]
+  tags:
+    - configuration
+    - htop
+    - htop-configuration
 
 - name: create configuration file
   copy:
@@ -24,4 +31,7 @@
     mode: "{{ item.value.mode | default('0644') }}"
     force: "{{ 'yes' if htop_replace_htoprc else 'no' }}"
   with_dict: "{{ htop_htoprc_destinations }}"
-  tags: [configuration, htop, htop-configuration]
+  tags:
+    - configuration
+    - htop
+    - htop-configuration
