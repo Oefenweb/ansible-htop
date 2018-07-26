@@ -1,6 +1,6 @@
 ## htop
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-htop.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-htop) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-htop-blue.svg)](https://galaxy.ansible.com/tersmitten/htop)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-htop.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-htop) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-htop-blue.svg)](https://galaxy.ansible.com/Oefenweb/htop)
 
 Set up htop in Debian-like systems.
 
