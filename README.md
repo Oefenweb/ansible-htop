@@ -1,6 +1,7 @@
 ## htop
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-htop.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-htop) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-htop-blue.svg)](https://galaxy.ansible.com/Oefenweb/htop)
+[![CI](https://github.com/Oefenweb/ansible-htop/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-htop/actions?query=workflow%3ACI)
+[![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-htop-blue.svg)](https://galaxy.ansible.com/Oefenweb/htop)
 
 Set up htop in Debian-like systems.
 
