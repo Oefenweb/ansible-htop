@@ -1,7 +1,7 @@
 # tasks file
 ---
 - name: install
-  apt:
+  ansible.builtin.apt:
     name: "{{ htop_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -12,7 +12,7 @@
     - htop-install
 
 - name: create configuration directory
-  file:
+  ansible.builtin.file:
     path: "{{ item.value.dest }}"
     state: directory
     mode: 0755
@@ -23,7 +23,7 @@
     - htop-configuration
 
 - name: create configuration file
-  copy:
+  ansible.builtin.copy:
     src: etc/skel/.config/htop/htoprc
     dest: "{{ item.value.dest }}/htoprc"
     owner: "{{ item.value.owner | default('root') }}"
