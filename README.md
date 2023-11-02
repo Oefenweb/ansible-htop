@@ -30,7 +30,7 @@ None
 ---
 - hosts: all
   roles:
-  - htop
+    - oefenweb.htop
 ```
 
 #### License
