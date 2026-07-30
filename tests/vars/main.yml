@@ -4,7 +4,7 @@ htop_htoprc_destinations:
   skell:
     dest: /etc/skel/.config/htop
   current:
-    dest: "{{ ansible_env.HOME }}/.config/htop"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.config/htop"
   dummy:
     dest: /home/dummy/.config/htop
     owner: dummy
